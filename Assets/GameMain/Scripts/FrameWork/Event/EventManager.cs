@@ -13,9 +13,9 @@ namespace FrameWork
             m_EventDict = new Dictionary<int, LinkedList<EventHandler<FrameWorkEventArg>>>();
         }
 
-        public void RegistEvent<T>(EventHandler<FrameWorkEventArg> eventHandler) where T : FrameWorkEventArg
+        public void RegistEvent<T>(EventHandler<T> eventHandler) where T : FrameWorkEventArg
         {
-            RegistEvent(typeof(T).GetHashCode(), eventHandler);
+            RegistEvent(typeof(T).GetHashCode(), eventHandler as EventHandler<FrameWorkEventArg>);
         }
         public void RegistEvent(int idx, EventHandler<FrameWorkEventArg> eventHandler)
         {
@@ -35,9 +35,9 @@ namespace FrameWork
             eventsList.AddLast(eventHandler);
         }
 
-        public void UnRegistEvent<T>(EventHandler<FrameWorkEventArg> eventHandler) where T : FrameWorkEventArg
+        public void UnRegistEvent<T>(EventHandler<T> eventHandler) where T : FrameWorkEventArg
         {
-            UnRegistEvent(typeof(T).GetHashCode(), eventHandler);
+            UnRegistEvent(typeof(T).GetHashCode(), eventHandler as EventHandler<FrameWorkEventArg>);
         }
 
         public void UnRegistEvent(int idx, EventHandler<FrameWorkEventArg> eventHandler)
