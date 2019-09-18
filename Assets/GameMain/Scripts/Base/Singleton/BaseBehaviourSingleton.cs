@@ -16,6 +16,7 @@ namespace GameProject
                     if(s_Container == null)
                     {
                         s_Container = new GameObject("StaticObjContainer");
+                        GameObject.DontDestroyOnLoad(s_Container);
                     }
 
                     s_Singleton = s_Container.AddComponent<T>();

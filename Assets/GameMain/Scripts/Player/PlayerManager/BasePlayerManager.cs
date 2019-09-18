@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 namespace GameProject.PlayerModule{
-	public abstract class BasePlayerManager {
+	public abstract class BasePlayerAgent {
+        public virtual void Init()
+        {
 
+        }
 	}
 }

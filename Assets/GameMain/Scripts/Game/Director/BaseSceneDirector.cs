@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FrameWork;
 namespace GameProject{
 	public abstract class BaseSceneDirector : MonoBehaviour {
         private void Awake()
@@ -15,7 +16,7 @@ namespace GameProject{
         
         // Use this for initialization
         void Start () {
-            GameControler.singleton.eventManager.RegistEvent<OnLeaveSceneEventArg>(OnLeaveScene);
+            GameControler.singleton.eventManager.RegistEvent<JumpSceneEventArg>(OnLeaveScene);
             OnStart();
         }
 
@@ -29,9 +30,9 @@ namespace GameProject{
 			
 		}
 
-        protected virtual void OnLeaveScene(object sender,OnLeaveSceneEventArg arg)
+        protected virtual void OnLeaveScene(object sender, FrameWorkEventArg arg)
         {
-            GameControler.singleton.eventManager.UnRegistEvent<OnLeaveSceneEventArg>(OnLeaveScene);
+            GameControler.singleton.eventManager.UnRegistEvent<JumpSceneEventArg>(OnLeaveScene);
         }
 
 	}

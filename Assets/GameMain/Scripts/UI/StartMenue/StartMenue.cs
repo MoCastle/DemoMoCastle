@@ -5,9 +5,9 @@ using GameProject.PlayerModule;
      
 namespace GameProject{
 	public class StartMenue : MonoBehaviour {
-        public void Start()
+        public void StartGame()
         {
-            Player.singleton.questManager.RunQuest();
+            Player.singleton.Init();
         }
     }
 }
