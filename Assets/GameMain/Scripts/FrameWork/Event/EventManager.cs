@@ -66,7 +66,7 @@ namespace FrameWork
             eventsList.Remove(eventNode);
         }
 
-        public void FireEvent<T>(object sender, T arg) where T : FrameWorkEventArg
+        public void FireEvent<T>(object sender, T arg = null) where T : FrameWorkEventArg
         {
             int idx = typeof(T).GetHashCode();
             FireEvent(idx, sender, arg);

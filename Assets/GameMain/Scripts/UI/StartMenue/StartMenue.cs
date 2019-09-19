@@ -8,6 +8,7 @@ namespace GameProject{
         public void StartGame()
         {
             Player.singleton.Init();
+            GameControler.StartGame();
         }
     }
 }

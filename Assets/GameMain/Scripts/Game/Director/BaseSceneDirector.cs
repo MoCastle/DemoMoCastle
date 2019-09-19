@@ -7,33 +7,31 @@ namespace GameProject{
         private void Awake()
         {
             OnAwake();
+            GameControler.singleton.eventManager.RegistEvent<GameStopEventArg>(OnGameStop);
+            GameControler.singleton.eventManager.RegistEvent<OnLeaveSceneEventArg>(OnLeaveScene);
+            GameControler.singleton.eventManager.RegistEvent<PlayScenePlayEventArg>(OnPlaySceenPlay);
         }
-
-        protected virtual void OnAwake()
+        private void Start()
         {
-
-        }
-        
-        // Use this for initialization
-        void Start () {
-            GameControler.singleton.eventManager.RegistEvent<JumpSceneEventArg>(OnLeaveScene);
             OnStart();
+            GameControler.singleton.eventManager.FireEvent<SceneStartedArg>(this);
         }
-
         protected virtual void OnStart()
         {
-
         }
-	
-		// Update is called once per frame
-		void Update () {
-			
-		}
 
+        protected virtual void OnAwake() { }
+        protected virtual void OnGameStop(object sender, FrameWorkEventArg arg)
+        {
+        }
         protected virtual void OnLeaveScene(object sender, FrameWorkEventArg arg)
         {
-            GameControler.singleton.eventManager.UnRegistEvent<JumpSceneEventArg>(OnLeaveScene);
+            GameControler.singleton.eventManager.UnRegistEvent<GameStopEventArg>(OnGameStop);
+            GameControler.singleton.eventManager.UnRegistEvent<OnLeaveSceneEventArg>(OnLeaveScene);
+            GameControler.singleton.eventManager.UnRegistEvent<PlayScenePlayEventArg>(OnPlaySceenPlay);
         }
-
-	}
+        protected virtual void OnPlaySceenPlay(object sender, FrameWorkEventArg arg)
+        {
+        }
+    }
 }

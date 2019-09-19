@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FrameWork;
+using GameProject.Director;
 namespace GameProject
 {
     public class BattleDirector : BaseDirector<BattleDirector>

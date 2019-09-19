@@ -36,6 +36,12 @@ namespace GameProject{
         {
             return m_FrameWorkManager.GetManager<T>();
         }
+        #region 游戏控制
+        public static void StartGame()
+        {
+            singleton.sceneManager.JumpScene("PlayableScene");
+        }
+        #endregion
 
-	}
+    }
 }

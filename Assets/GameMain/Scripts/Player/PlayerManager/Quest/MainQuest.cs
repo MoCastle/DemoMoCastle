@@ -1,16 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using FrameWork;
 using GameProject.TimeLine;
+using GameProject;
 namespace GameProject.PlayerModule.Quest
 {
-    public class DefaultQuest : BaseQuest
+    public class MainQuest : BaseQuest
     {
         public int progress { get; private set; }
 
-        public DefaultQuest():base()
+        public MainQuest() : base()
         {
             //GameControler.singleton.eventManager.RegistEvent<PlayCompleteEventArg>(OnPlayComplete);
             //GameControler.singleton.eventManager.RegistEvent<ChampionFallArg>(OnChampionDown);
@@ -19,7 +21,15 @@ namespace GameProject.PlayerModule.Quest
 
         public override void Start()
         {
-            GameControler.singleton.eventManager.RegistEvent<SceneEnteredArg>((sendObj, sceneEnterAgrg) => { if (SceneManager.GetActiveScene().name == "Battle") { PushProgress(); } });
+            GameControler.singleton.eventManager.RegistEvent<SceneStartedArg>(EnterMainQuest);
+        }
+        void EnterMainQuest(object sendObj, FrameWorkEventArg sceneEnterAgrg)
+        {
+            if (SceneManager.GetActiveScene().name == "PlayableScene")
+            {
+                PushProgress();
+            }
+            GameControler.singleton.eventManager.UnRegistEvent<SceneStartedArg>(EnterMainQuest);
         }
 
         public override void Update()
@@ -35,32 +45,32 @@ namespace GameProject.PlayerModule.Quest
         public override void CompleteProgress()
         {
             ++progress;
-            
+
         }
 
         void PushProgress()
         {
-            switch(progress)
+            switch (progress)
             {
                 case 0:
-                    GameControler.singleton.eventManager.FireEvent<StopGameEventArg>(this, null);
+                    GameControler.singleton.eventManager.FireEvent<PlayScenePlayEventArg>(this, new PlayScenePlayEventArg(0));
                     break;
                 case 1:
                     break;
             }
         }
 
-        public void OnPlayComplete(object sender,FrameWorkEventArg arg)
+        public void OnPlayComplete(object sender, FrameWorkEventArg arg)
         {
             PlayCompleteEventArg playArg = arg as PlayCompleteEventArg;
-            if(playArg.id==0)
+            if (playArg.id == 0)
             {
                 CompleteProgress();
                 PushProgress();
             }
         }
 
-        public void OnChampionDown(object sendr,FrameWorkEventArg arg)
+        public void OnChampionDown(object sendr, FrameWorkEventArg arg)
         {
             CompleteProgress();
         }

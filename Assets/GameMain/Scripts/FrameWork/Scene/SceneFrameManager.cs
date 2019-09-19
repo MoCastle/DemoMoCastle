@@ -23,7 +23,7 @@ namespace FrameWork
             m_SceneDatas = new Dictionary<string, object>();
         }
 
-        public void JumpScene(string name,object data)
+        public void JumpScene(string name,object data = null)
         {
             eventManager.FireEvent<JumpSceneEventArg>(this,null);
             if(data !=null)

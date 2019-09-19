@@ -23,7 +23,7 @@ namespace GameProject.PlayerModule
         public override void Init()
         {
             base.Init();
-            DefaultQuest mainQuest = new DefaultQuest();
+            MainQuest mainQuest = new MainQuest();
             AddQuest(mainQuest);
         }
 

@@ -3,46 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
-using GameProject;
 using GameProject.PlayerModule;
 using GameProject.TimeLine;
+using GameProject;
+using FrameWork;
+using UnityEngine.Timeline;
 
-namespace GameProject.ScenePlay
+namespace GameProject
 {
-    public class ScenePlayDirector : MonoBehaviour
+    public class ScenePlayDirector : BaseSceneDirector
     {
         [SerializeField]
-        PlayableDirector CurDirector;
+        PlayableDirectorControler CurDirector;
 
         int m_CurPlayID;
 
-        private void Awake()
+        protected override void OnPlaySceenPlay(object sender, FrameWorkEventArg arg)
         {
-            string sceneName = SceneManager.GetActiveScene().name;
-            m_CurPlayID = (GameControler.singleton.sceneManager.GetSceneData(sceneName)as int?)?? 0;
+            base.OnPlaySceenPlay(sender, arg);
+            PlayScenePlayEventArg playArg = arg as PlayScenePlayEventArg;
+            int idx = playArg.playID;
+            CurDirector = transform.GetChild(idx).GetComponent<PlayableDirectorControler>();
+            CurDirector.Init(idx);
+            CurDirector.Play();
         }
-
-        private void Start()
-        {
-            OnStart();
-        }
-
-        void OnStart()
-        {
-            if (CurDirector != null)
-            {
-                CurDirector.Play();
-            }
-        }
-
-        private void Update()
-        {
-            if (CurDirector.time >= CurDirector.duration)
-            {
-                Debug.Log(CurDirector.duration - CurDirector.time);
-                GameControler.singleton.eventManager.FireEvent(this,new PlayCompleteEventArg(m_CurPlayID));
-            }
-            //Debug.Log(CurDirector.duration);
-        }
+        //private void Update()
+        //{
+        //    if (CurDirector.time >= CurDirector.duration)
+        //    {
+        //        Debug.Log(CurDirector.duration - CurDirector.time);
+        //        GameControler.singleton.eventManager.FireEvent(this,new PlayCompleteEventArg(m_CurPlayID));
+        //        gameObject.active = false;
+        //    }
+        //    //Debug.Log(CurDirector.duration);
+        //}
     }
 }
