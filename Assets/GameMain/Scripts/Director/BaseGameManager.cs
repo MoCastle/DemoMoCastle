@@ -5,7 +5,7 @@ using GameProject;
 using FrameWork;
 namespace GameProject.Director
 {
-    public class BaseDirector<T> : MonoBehaviour where T:BaseDirector<T>
+    public class BaseGameManager<T> : MonoBehaviour where T:BaseGameManager<T>
     {
         public static T singleton { get; private set; }
         private void Awake()

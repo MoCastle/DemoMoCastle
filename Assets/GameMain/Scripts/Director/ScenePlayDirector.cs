@@ -13,20 +13,7 @@ namespace GameProject
 {
     public class ScenePlayDirector : BaseSceneDirector
     {
-        [SerializeField]
-        PlayableDirectorControler CurDirector;
-
-        int m_CurPlayID;
-
-        protected override void OnPlaySceenPlay(object sender, FrameWorkEventArg arg)
-        {
-            base.OnPlaySceenPlay(sender, arg);
-            PlayScenePlayEventArg playArg = arg as PlayScenePlayEventArg;
-            int idx = playArg.playID;
-            CurDirector = transform.GetChild(idx).GetComponent<PlayableDirectorControler>();
-            CurDirector.Init(idx);
-            CurDirector.Play();
-        }
+        
         //private void Update()
         //{
         //    if (CurDirector.time >= CurDirector.duration)

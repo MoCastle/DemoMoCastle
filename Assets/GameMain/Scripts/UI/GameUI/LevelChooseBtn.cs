@@ -12,7 +12,7 @@ namespace GameProject{
         }
         public void OnClickBtn()
         {
-
+            GameControler.EnterBattleScene(idx);
         }
 	}
 }

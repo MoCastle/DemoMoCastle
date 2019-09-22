@@ -41,6 +41,23 @@ namespace GameProject{
         {
             singleton.sceneManager.JumpScene("PlayableScene");
         }
+        public static void EnterPlayableScene()
+        {
+            singleton.sceneManager.JumpScene("PlayableScene");
+        }
+        public static void EnterChoseLevelScene()
+        {
+            singleton.sceneManager.JumpScene("LevelChoice");
+        }
+        public static void EnterBattleScene(int idx)
+        {
+            singleton.InternalBattleScene(idx);
+        }
+        void InternalBattleScene(int idx)
+        {
+            sceneManager.JumpScene("BattleScene", idx);
+        }
+
         #endregion
 
     }

@@ -10,6 +10,7 @@ namespace GameProject.PlayerModule.Quest
 {
     public class MainQuest : BaseQuest
     {
+        int targetEnemyIdx;
         public int progress { get; private set; }
 
         public MainQuest() : base()
@@ -19,19 +20,39 @@ namespace GameProject.PlayerModule.Quest
             id = 0;
         }
 
-        public override void Start()
+        public override void StartNewQuest()
         {
-            GameControler.singleton.eventManager.RegistEvent<SceneStartedArg>(EnterMainQuest);
+            PushProgress();
         }
+        #region 进入游戏
         void EnterMainQuest(object sendObj, FrameWorkEventArg sceneEnterAgrg)
         {
             if (SceneManager.GetActiveScene().name == "PlayableScene")
             {
-                PushProgress();
+                GameControler.singleton.eventManager.UnRegistEvent<SceneStartedArg>(EnterMainQuest);
+                GameControler.singleton.eventManager.FireEvent<PlayScenePlayEventArg>(this,new PlayScenePlayEventArg(0));
+                GameControler.singleton.eventManager.RegistEvent<PlayCompleteEventArg>(GamePlaySceneEnd);
             }
-            GameControler.singleton.eventManager.UnRegistEvent<SceneStartedArg>(EnterMainQuest);
         }
 
+        void GamePlaySceneEnd(object sendObj, FrameWorkEventArg endArg)
+        {
+            CompleteProgress();
+            PlayCompleteEventArg playEndArg = endArg as PlayCompleteEventArg;
+            if(playEndArg.id == 0)
+            {
+                GameControler.singleton.eventManager.UnRegistEvent<PlayCompleteEventArg>(GamePlaySceneEnd);
+                PushProgress();
+            }
+        }
+        #endregion
+
+        #region 怪物
+        void OnEnterBattlePlayScnePlay(object sender, FrameWorkEventArg arg)
+        {
+        }
+
+        #endregion
         public override void Update()
         {
 
@@ -45,7 +66,6 @@ namespace GameProject.PlayerModule.Quest
         public override void CompleteProgress()
         {
             ++progress;
-
         }
 
         void PushProgress()
@@ -53,9 +73,10 @@ namespace GameProject.PlayerModule.Quest
             switch (progress)
             {
                 case 0:
-                    GameControler.singleton.eventManager.FireEvent<PlayScenePlayEventArg>(this, new PlayScenePlayEventArg(0));
+                    GameControler.singleton.eventManager.RegistEvent<SceneStartedArg>(EnterMainQuest);
                     break;
                 case 1:
+                    GameControler.EnterChoseLevelScene();
                     break;
             }
         }

@@ -30,7 +30,7 @@ namespace GameProject.PlayerModule
         void AddQuest(BaseQuest quest)
         {
             m_QuestDict.Add(quest.id, quest);
-            quest.Start();
+            quest.StartNewQuest();
         }
 
     }

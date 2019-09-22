@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 namespace GameProject{
-	public class ChooseLevel : MonoBehaviour {
+	public class ChooseLevelDirector : MonoBehaviour {
 
 		// Use this for initialization
 		void Start () {

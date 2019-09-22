@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FrameWork;
-namespace GameProject{
-	public abstract class BaseSceneDirector : MonoBehaviour {
+using GameProject.TimeLine;
+
+namespace GameProject
+{
+    public abstract class BaseSceneDirector : MonoBehaviour
+    {
+        protected PlayableDirectorControler m_CurDirector;
+
         private void Awake()
         {
             OnAwake();
@@ -30,8 +36,20 @@ namespace GameProject{
             GameControler.singleton.eventManager.UnRegistEvent<OnLeaveSceneEventArg>(OnLeaveScene);
             GameControler.singleton.eventManager.UnRegistEvent<PlayScenePlayEventArg>(OnPlaySceenPlay);
         }
+
         protected virtual void OnPlaySceenPlay(object sender, FrameWorkEventArg arg)
         {
+            PlayScenePlayEventArg playArg = arg as PlayScenePlayEventArg;
+            int idx = playArg.playID;
+            InternalPlaySceenPlay(idx);
+        }
+
+        protected void InternalPlaySceenPlay(int idx)
+        {
+            m_CurDirector = transform.GetChild(idx).GetComponent<PlayableDirectorControler>();
+            m_CurDirector.gameObject.active = true;
+            m_CurDirector.Init(idx);
+            m_CurDirector.Play();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace GameProject
 
         public void Init()
         {
-            BattleDirector dir = BattleDirector.singleton;
+            BattleManager dir = BattleManager.singleton;
             playerUI.Init(dir.player);
             enemyUI.Init(dir.enemy);
         }

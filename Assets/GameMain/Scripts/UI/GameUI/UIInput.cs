@@ -18,14 +18,14 @@ namespace GameProject
         {
             get
             {
-                return BattleDirector.singleton.player;
+                return BattleManager.singleton.player;
             }
         }
         public BaseActor enemy
         {
             get
             {
-                return BattleDirector.singleton.enemy;
+                return BattleManager.singleton.enemy;
             }
         }
 

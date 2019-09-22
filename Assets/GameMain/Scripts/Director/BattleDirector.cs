@@ -2,58 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FrameWork;
-using GameProject.Director;
-namespace GameProject
-{
-    public class BattleDirector : BaseDirector<BattleDirector>
-    {
-        public BaseActor player;
-        public BaseActor enemy;
+using GameProject.TimeLine;
+namespace GameProject{
+	public class BattleDirector : BaseSceneDirector {
+        BattleManager m_BattleManager;
 
-        [SerializeField]
-        BattleUI m_BTUI;
-        [SerializeField]
-        UIInput m_Input;
-
-        private void Start()
+        protected override void OnStart()
         {
-            player.Init();
-            enemy.Init();
-
-            m_BTUI.Init();
-            m_Input.Init();
-
-            GameControler.singleton.eventManager.FireEvent<SceneEnteredArg>(this, null);
-            GameControler.singleton.eventManager.RegistEvent<ChampionFallArg>(GameEnd);
+            base.OnStart();
+            m_BattleManager = GetComponent<BattleManager>();
+            int idx = (GameControler.singleton.sceneManager.GetSceneData("BattleScene") as int?) ??0;
+            InternalPlaySceenPlay(idx);
+            GameControler.singleton.eventManager.RegistEvent<PlayCompleteEventArg>(InternalStartBattle);
         }
 
-        private void OnDestroy()
+        void InternalStartBattle(object sender,FrameWorkEventArg arg)
         {
-            GameControler.singleton.eventManager.UnRegistEvent<ChampionFallArg>(GameEnd);
-        }
-
-        private void GameEnd(object sender,FrameWorkEventArg arg)
-        {
-            enemy.gameObject.active = false;
-            player.gameObject.active = false;
-
-            if (player.propty.life > 0)
-            {
-                WinGame();
-            }
-            else
-            {
-                LostGame();
-            }
-        }
-
-        private void WinGame()
-        {
-        }
-
-        private void LostGame()
-        {
-
+            m_BattleManager.StartBattle();
+            GameControler.singleton.eventManager.UnRegistEvent<PlayCompleteEventArg>(InternalStartBattle);
         }
     }
 }
