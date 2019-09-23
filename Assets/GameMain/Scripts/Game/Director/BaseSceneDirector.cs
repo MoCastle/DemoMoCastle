@@ -14,7 +14,7 @@ namespace GameProject
         {
             OnAwake();
             GameControler.singleton.eventManager.RegistEvent<GameStopEventArg>(OnGameStop);
-            GameControler.singleton.eventManager.RegistEvent<OnLeaveSceneEventArg>(OnLeaveScene);
+            GameControler.singleton.eventManager.RegistEvent<JumpSceneEventArg>(OnLeaveScene);
             GameControler.singleton.eventManager.RegistEvent<PlayScenePlayEventArg>(OnPlaySceenPlay);
         }
         private void Start()
@@ -33,7 +33,7 @@ namespace GameProject
         protected virtual void OnLeaveScene(object sender, FrameWorkEventArg arg)
         {
             GameControler.singleton.eventManager.UnRegistEvent<GameStopEventArg>(OnGameStop);
-            GameControler.singleton.eventManager.UnRegistEvent<OnLeaveSceneEventArg>(OnLeaveScene);
+            GameControler.singleton.eventManager.UnRegistEvent<JumpSceneEventArg>(OnLeaveScene);
             GameControler.singleton.eventManager.UnRegistEvent<PlayScenePlayEventArg>(OnPlaySceenPlay);
         }
 
@@ -44,7 +44,7 @@ namespace GameProject
             InternalPlaySceenPlay(idx);
         }
 
-        protected void InternalPlaySceenPlay(int idx)
+        protected virtual void InternalPlaySceenPlay(int idx)
         {
             m_CurDirector = transform.GetChild(idx).GetComponent<PlayableDirectorControler>();
             m_CurDirector.gameObject.active = true;

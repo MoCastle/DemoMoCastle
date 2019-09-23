@@ -25,11 +25,22 @@ namespace GameProject
 
             GameControler.singleton.eventManager.FireEvent<SceneEnteredArg>(this, null);
             GameControler.singleton.eventManager.RegistEvent<ChampionFallArg>(GameEnd);
-            player.gameObject.active = false;
-            enemy.gameObject.active = false;
+            Pause();
         }
         #region 战斗
         public void StartBattle()
+        {
+            player.gameObject.active = true;
+            enemy.gameObject.active = true;
+        }
+
+        public void Pause()
+        {
+            player.gameObject.active = false;
+            enemy.gameObject.active = false;
+        }
+
+        public void Continue()
         {
             player.gameObject.active = true;
             enemy.gameObject.active = true;
@@ -43,8 +54,7 @@ namespace GameProject
 
         private void GameEnd(object sender,FrameWorkEventArg arg)
         {
-            enemy.gameObject.active = false;
-            player.gameObject.active = false;
+            Pause();
 
             if (player.propty.life > 0)
             {

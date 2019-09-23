@@ -37,9 +37,9 @@ namespace FrameWork
             eventsList.AddLast(eventHandler);
         }
 
-        public void UnRegistEvent<T>(EventHandler<T> eventHandler) where T : FrameWorkEventArg
+        public void UnRegistEvent<T>(EventHandler<FrameWorkEventArg> eventHandler) where T : FrameWorkEventArg
         {
-            UnRegistEvent(typeof(T).GetHashCode(), eventHandler as EventHandler<FrameWorkEventArg>);
+            UnRegistEvent(typeof(T).GetHashCode(), eventHandler);
         }
 
         public void UnRegistEvent(int idx, EventHandler<FrameWorkEventArg> eventHandler)

@@ -50,6 +50,14 @@ namespace GameProject.PlayerModule.Quest
         #region 怪物
         void OnEnterBattlePlayScnePlay(object sender, FrameWorkEventArg arg)
         {
+            BaseActor champion = sender as BaseActor;
+            if(champion.propty.name == "测试怪")
+            {
+                GameControler.singleton.eventManager.FireEvent<PlayScenePlayEventArg>(this, new PlayScenePlayEventArg(1));
+                GameControler.singleton.eventManager.UnRegistEvent<ChampionFallArg>(OnEnterBattlePlayScnePlay);
+                CompleteProgress();
+                PushProgress();
+            }
         }
 
         #endregion
@@ -77,6 +85,7 @@ namespace GameProject.PlayerModule.Quest
                     break;
                 case 1:
                     GameControler.EnterChoseLevelScene();
+                    GameControler.singleton.eventManager.RegistEvent<ChampionFallArg>(OnEnterBattlePlayScnePlay);
                     break;
             }
         }

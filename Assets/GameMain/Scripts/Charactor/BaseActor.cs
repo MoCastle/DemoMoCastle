@@ -64,11 +64,11 @@ namespace GameProject
                 return;
             OnNewProgresss("受到" + value + "点伤害");
             BattleInfoArg arg = new BattleInfoArg();
-            arg.Message = gameObject.name + "受到" + value + "点伤害";
+            arg.Message = m_Propty.name + "受到" + value + "点伤害";
             GameControler.singleton.eventManager.FireEvent<BattleInfoArg>(this, arg);
             if( DeductLife(value)<=0)
             {
-                arg.Message = gameObject.name + "死亡";
+                arg.Message = m_Propty.name + "死亡";
                 GameControler.singleton.eventManager.FireEvent<BattleInfoArg>(this, arg);
                 GameControler.singleton.eventManager.FireEvent<ChampionFallArg>(this, null);
             }

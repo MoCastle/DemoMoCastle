@@ -12,6 +12,7 @@ namespace GameProject
         public int life;
         public int atk;
         public int effectLayer;
+        public string name;
         int[] m_LayerArr;
 
         public void init()

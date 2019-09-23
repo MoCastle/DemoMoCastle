@@ -19,7 +19,13 @@ namespace GameProject{
         void InternalStartBattle(object sender,FrameWorkEventArg arg)
         {
             m_BattleManager.StartBattle();
+            m_BattleManager.Continue();
             GameControler.singleton.eventManager.UnRegistEvent<PlayCompleteEventArg>(InternalStartBattle);
+        }
+        protected override void InternalPlaySceenPlay(int idx)
+        {
+            base.InternalPlaySceenPlay(idx);
+            m_BattleManager.Pause();
         }
     }
 }
