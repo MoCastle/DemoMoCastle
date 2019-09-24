@@ -32,6 +32,22 @@ namespace GameProject.PlayerModule
             m_QuestDict.Add(quest.id, quest);
             quest.StartNewQuest();
         }
+        #region 任务
+        public BaseQuest GetBaseQuest(int idx)
+        {
+            return m_QuestDict[idx];
+        }
 
+        public T GetBaseQuest<T>(int idx) where T:BaseQuest
+        {
+            return m_QuestDict[idx] as T;
+        }
+
+        public int GetQuestProgress(int idx)
+        {
+            BaseQuest quest = m_QuestDict[idx];
+            return quest.progress;
+        }
+        #endregion
     }
 }

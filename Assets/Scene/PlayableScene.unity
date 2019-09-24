@@ -505,7 +505,7 @@ Prefab:
     - target: {fileID: 114615066730300016, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_Text
-      value: "\u8FD9\u662F\u4E00\u4E2A\u6D4B\u8BD5\u6D41\u7A0B\uFF0C\u7528\u4EE5\u63CF\u8FF0\u6E38\u620F\u6D41\u7A0B\n\u4F60\u5C06\u4F5C\u4E3A\u4E00\u4E2A\u52C7\u8005\n\u6253\u8D25\u4E00\u4E2A\u6D4B\u8BD5\u602A\u7269"
+      value: "\u8FD9\u662F\u4E00\u4E2A\u6D4B\u8BD5\u6D41\u7A0B\uFF0C\u7528\u4EE5\u63CF\u8FF0\u6E38\u620F\u6D41\u7A0B\n\u4F60\u5C06\u4F5C\u4E3A\u4E00\u4E2A\u52C7\u8005\n\u6253\u8D25\u9B54\u738B\u62EF\u6551\u4E16\u754C"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03af50f0052853249ad0b6b0a0080168, type: 2}

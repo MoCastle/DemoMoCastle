@@ -14,12 +14,15 @@ namespace GameProject
         public int effectLayer;
         public string name;
         int[] m_LayerArr;
-
-        public void init()
+        #region 流程
+        public void Reset()
         {
             life = maxLife;
             m_LayerArr = new int[(int)EgnoreEffect.End];
+            effectLayer = 0;
         }
+        #endregion
+
         public float lifePercent
         {
             get

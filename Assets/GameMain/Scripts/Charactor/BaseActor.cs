@@ -8,6 +8,7 @@ namespace GameProject
 {
     public class BaseActor : MonoBehaviour
     {
+        public Action<BaseActor> OnChampionFallDown;
         public Action OnBuffChange;
 
         protected BuffAgent m_BuffAgent;
@@ -36,11 +37,10 @@ namespace GameProject
         {
             m_BuffAgent = GetComponent<BuffAgent>();
             skillList = GetComponent<SkillList>();
-            m_Propty.init();
+            m_Propty.Reset();
 
             m_BuffAgent.Init();
         }
-        
         #endregion
         #region 属性
         int DeductLife(int value)
@@ -66,11 +66,12 @@ namespace GameProject
             BattleInfoArg arg = new BattleInfoArg();
             arg.Message = m_Propty.name + "受到" + value + "点伤害";
             GameControler.singleton.eventManager.FireEvent<BattleInfoArg>(this, arg);
-            if( DeductLife(value)<=0)
+            if(OnChampionFallDown!=null)
+                OnChampionFallDown(this);
+            if ( DeductLife(value)<=0)
             {
                 arg.Message = m_Propty.name + "死亡";
                 GameControler.singleton.eventManager.FireEvent<BattleInfoArg>(this, arg);
-                GameControler.singleton.eventManager.FireEvent<ChampionFallArg>(this, null);
             }
 
         }

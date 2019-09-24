@@ -27,9 +27,11 @@ namespace GameProject
         }
 
         protected virtual void OnAwake() { }
+
         protected virtual void OnGameStop(object sender, FrameWorkEventArg arg)
         {
         }
+
         protected virtual void OnLeaveScene(object sender, FrameWorkEventArg arg)
         {
             GameControler.singleton.eventManager.UnRegistEvent<GameStopEventArg>(OnGameStop);
@@ -41,6 +43,11 @@ namespace GameProject
         {
             PlayScenePlayEventArg playArg = arg as PlayScenePlayEventArg;
             int idx = playArg.playID;
+            InternalPlaySceenPlay(idx);
+        }
+
+        public virtual void PlayScenePlay(int idx)
+        {
             InternalPlaySceenPlay(idx);
         }
 

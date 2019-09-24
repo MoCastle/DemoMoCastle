@@ -11,7 +11,7 @@ namespace GameProject.PlayerModule.Quest
     public class MainQuest : BaseQuest
     {
         int targetEnemyIdx;
-        public int progress { get; private set; }
+        public override int progress { get; protected set; }
 
         public MainQuest() : base()
         {
@@ -51,9 +51,8 @@ namespace GameProject.PlayerModule.Quest
         void OnEnterBattlePlayScnePlay(object sender, FrameWorkEventArg arg)
         {
             BaseActor champion = sender as BaseActor;
-            if(champion.propty.name == "测试怪")
+            if(champion.propty.name == "魔王")
             {
-                GameControler.singleton.eventManager.FireEvent<PlayScenePlayEventArg>(this, new PlayScenePlayEventArg(1));
                 GameControler.singleton.eventManager.UnRegistEvent<ChampionFallArg>(OnEnterBattlePlayScnePlay);
                 CompleteProgress();
                 PushProgress();
