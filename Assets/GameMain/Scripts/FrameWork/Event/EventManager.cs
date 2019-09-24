@@ -34,7 +34,7 @@ namespace FrameWork
                     return;
                 }
             }
-            eventsList.AddLast(eventHandler);
+            eventsList.AddFirst(eventHandler);
         }
 
         public void UnRegistEvent<T>(EventHandler<FrameWorkEventArg> eventHandler) where T : FrameWorkEventArg
@@ -79,9 +79,12 @@ namespace FrameWork
             {
                 return;
             }
-            foreach(EventHandler<FrameWorkEventArg> handler in eventsList)
+            LinkedListNode<EventHandler<FrameWorkEventArg>> node = eventsList.First;
+            while(node!=null)
             {
-                handler(sender, arg);
+                LinkedListNode<EventHandler<FrameWorkEventArg>> next = node.Next;
+                node.Value(sender, arg);
+                node = next;
             }
         }
         
