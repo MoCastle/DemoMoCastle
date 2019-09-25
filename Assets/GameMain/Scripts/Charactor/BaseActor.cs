@@ -17,6 +17,19 @@ namespace GameProject
         [SerializeField]
         CharactorPropty m_Propty;
 
+        string m_OutPutName;
+        public string outPutName
+        {
+            get
+            {
+                if(m_OutPutName == null)
+                {
+                    m_OutPutName = "< color =#00ffffff>"+m_Propty.name+"</color>";
+                }
+                return m_OutPutName;
+            }
+        }
+
         public delegate void OnGetNewProgress(string newMessage);
         public OnGetNewProgress OnNewProgresss;
         public CharactorPropty propty
@@ -26,7 +39,6 @@ namespace GameProject
                 return m_Propty;
             }
         }
-
         public SkillList skillList
         {
             get;
@@ -66,12 +78,12 @@ namespace GameProject
             BattleInfoArg arg = new BattleInfoArg();
             arg.Message = m_Propty.name + "受到" + value + "点伤害";
             GameControler.singleton.eventManager.FireEvent<BattleInfoArg>(this, arg);
-            if(OnChampionFallDown!=null)
-                OnChampionFallDown(this);
+            
             if ( DeductLife(value)<=0)
             {
                 arg.Message = m_Propty.name + "死亡";
                 GameControler.singleton.eventManager.FireEvent<BattleInfoArg>(this, arg);
+                OnChampionFallDown(this);
             }
 
         }
@@ -116,6 +128,9 @@ namespace GameProject
         {
             return m_BuffAgent.GetBuffList();
         }
+        #endregion
+        #region 输出
+
         #endregion
     }
 

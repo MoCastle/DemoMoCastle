@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -746,32 +746,32 @@ Prefab:
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
@@ -799,11 +799,26 @@ Prefab:
     - target: {fileID: 224911684438898776, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -174.57
+      value: 154.20001
       objectReference: {fileID: 0}
     - target: {fileID: 1303031799881856, guid: 03af50f0052853249ad0b6b0a0080168, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224911684438898776, guid: 03af50f0052853249ad0b6b0a0080168,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224911684438898776, guid: 03af50f0052853249ad0b6b0a0080168,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224911684438898776, guid: 03af50f0052853249ad0b6b0a0080168,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 308.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03af50f0052853249ad0b6b0a0080168, type: 2}
@@ -835,6 +850,11 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &412670072 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1303031799881856, guid: 03af50f0052853249ad0b6b0a0080168,
+    type: 2}
+  m_PrefabInternal: {fileID: 412670068}
 --- !u!1 &456060840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,7 +1511,7 @@ PlayableDirector:
   m_GameObject: {fileID: 856744939}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 367610065abf21240b4e25376d52320c, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 53b91e11e92618c4e8c9ff17a133c7fe, type: 2}
   m_InitialState: 1
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -1502,6 +1522,12 @@ PlayableDirector:
   - key: {fileID: 0}
     value: {fileID: 1085578813}
   - key: {fileID: 114436874350461212, guid: 367610065abf21240b4e25376d52320c, type: 2}
+    value: {fileID: 1085578813}
+  - key: {fileID: 114575716324829786, guid: 367610065abf21240b4e25376d52320c, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114575716324829786, guid: 53b91e11e92618c4e8c9ff17a133c7fe, type: 2}
+    value: {fileID: 1085578815}
+  - key: {fileID: 114623994401337456, guid: 53b91e11e92618c4e8c9ff17a133c7fe, type: 2}
     value: {fileID: 1085578813}
   m_ExposedReferences:
     m_References: []
@@ -1838,32 +1864,32 @@ Prefab:
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
@@ -1882,7 +1908,7 @@ Prefab:
     - target: {fileID: 114615066730300016, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_Text
-      value: "\u52C7\u8005\u88AB\u6253\u8D25\n\u9B54\u738B\u5F88\u5931\u671B"
+      value: "\u52C7\u8005\u88AB\u6253\u8D25\n\u8FD9\u5C4A\u52C7\u8005\u4E0D\u884C\n\u9B54\u738B\u5F88\u5931\u671B"
       objectReference: {fileID: 0}
     - target: {fileID: 1007297569524306, guid: 03af50f0052853249ad0b6b0a0080168, type: 2}
       propertyPath: m_Name
@@ -1891,7 +1917,12 @@ Prefab:
     - target: {fileID: 224911684438898776, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -172.8
+      value: 154.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224911684438898776, guid: 03af50f0052853249ad0b6b0a0080168,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03af50f0052853249ad0b6b0a0080168, type: 2}
@@ -1923,6 +1954,11 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1085578815 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1303031799881856, guid: 03af50f0052853249ad0b6b0a0080168,
+    type: 2}
+  m_PrefabInternal: {fileID: 1085578811}
 --- !u!1001 &1089184525
 Prefab:
   m_ObjectHideFlags: 0
@@ -2408,7 +2444,7 @@ MonoBehaviour:
     life: 100
     atk: 1
     effectLayer: 0
-    name: "\u9B54\u738B"
+    name: "<color=#ff00ffff>\u9B54\u738B</color>"
 --- !u!4 &1437464970
 Transform:
   m_ObjectHideFlags: 0
@@ -2826,15 +2862,15 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
-    m_RichText: 0
-    m_HorizontalOverflow: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0.8
   m_Text: rqwerwqerwqerqwerwerweqrwqerqwerwerqwerqwerqwerweqrewrqwerewrweqrweqrweqrweqrweqrweqrqwerwerewqrqwerqewrqwerqwerqwerqewrweqrqwerwe
@@ -2950,7 +2986,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1614743020}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 367610065abf21240b4e25376d52320c, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 0bde098cd73a08249865b5c932a965a5, type: 2}
   m_InitialState: 1
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -2961,6 +2997,12 @@ PlayableDirector:
   - key: {fileID: 0}
     value: {fileID: 1085578813}
   - key: {fileID: 114436874350461212, guid: 367610065abf21240b4e25376d52320c, type: 2}
+    value: {fileID: 412670070}
+  - key: {fileID: 114575716324829786, guid: 367610065abf21240b4e25376d52320c, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114575716324829786, guid: 0bde098cd73a08249865b5c932a965a5, type: 2}
+    value: {fileID: 412670072}
+  - key: {fileID: 114051111548053108, guid: 0bde098cd73a08249865b5c932a965a5, type: 2}
     value: {fileID: 412670070}
   m_ExposedReferences:
     m_References: []
@@ -3147,7 +3189,7 @@ MonoBehaviour:
     life: 100
     atk: 1
     effectLayer: 0
-    name: "\u52C7\u8005"
+    name: "<color=#00ffffff>\u52C7\u8005</color>"
 --- !u!4 &1643145273
 Transform:
   m_ObjectHideFlags: 0
@@ -3175,7 +3217,7 @@ MonoBehaviour:
   skillStruct:
   - name: "\u780D"
     type: 2
-    hurt: 100
+    hurt: 50
     releaseTime: 0.1
     interruptValue: 1
     lostBalandceLine: 3

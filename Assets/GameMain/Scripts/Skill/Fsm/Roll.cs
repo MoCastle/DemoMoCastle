@@ -15,7 +15,7 @@ namespace GameProject
 
         protected override string GenMessage()
         {
-            return m_SelfActor.gameObject.name + "开始翻滚";
+            return m_SelfActor.propty.name + "开始翻滚";
         }
 
         protected override void EffectSkill()

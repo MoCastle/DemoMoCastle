@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -193,6 +193,10 @@ PlayableDirector:
   - key: {fileID: 0}
     value: {fileID: 922743304}
   - key: {fileID: 114674549643117392, guid: 367610065abf21240b4e25376d52320c, type: 2}
+    value: {fileID: 922743304}
+  - key: {fileID: 0}
+    value: {fileID: 1222061777}
+  - key: {fileID: 114575716324829786, guid: 367610065abf21240b4e25376d52320c, type: 2}
     value: {fileID: 922743304}
   m_ExposedReferences:
     m_References: []
@@ -456,32 +460,32 @@ Prefab:
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224317385566721168, guid: 03af50f0052853249ad0b6b0a0080168,
         type: 2}
@@ -507,9 +511,24 @@ Prefab:
       propertyPath: m_Text
       value: "\u8FD9\u662F\u4E00\u4E2A\u6D4B\u8BD5\u6D41\u7A0B\uFF0C\u7528\u4EE5\u63CF\u8FF0\u6E38\u620F\u6D41\u7A0B\n\u4F60\u5C06\u4F5C\u4E3A\u4E00\u4E2A\u52C7\u8005\n\u6253\u8D25\u9B54\u738B\u62EF\u6551\u4E16\u754C"
       objectReference: {fileID: 0}
+    - target: {fileID: 224911684438898776, guid: 03af50f0052853249ad0b6b0a0080168,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 154.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224911684438898776, guid: 03af50f0052853249ad0b6b0a0080168,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03af50f0052853249ad0b6b0a0080168, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1222061777 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1007297569524306, guid: 03af50f0052853249ad0b6b0a0080168,
+    type: 2}
+  m_PrefabInternal: {fileID: 1222061776}
 --- !u!1 &1245074977
 GameObject:
   m_ObjectHideFlags: 0

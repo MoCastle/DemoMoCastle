@@ -43,7 +43,7 @@ namespace GameProject{
                         slider.gameObject.active = false;
                     }else
                     {
-                        txt.text = m_CurSkillState.skillInfo.name;
+                        txt.text = m_CurSkillState.skillInfo.outPutName;
                         slider.gameObject.active = true;
                     }
                 }

@@ -66,7 +66,7 @@ namespace GameProject
 
         protected virtual string GenMessage()
         {
-            return skillType == SkillType.HurtEffect ? m_SelfActor.propty.name + "被绊倒" : m_SelfActor.propty.name + " 对 " + m_BaseTarget.propty.name + "使用" + m_SkillStruct.name;
+            return skillType == SkillType.HurtEffect ? m_SelfActor.propty.name + " 被绊倒" : m_SelfActor.propty.name + " 对 " + m_BaseTarget.propty.name + "\n 使用 " + m_SkillStruct.outPutName;
         }
 
         public override void Update()

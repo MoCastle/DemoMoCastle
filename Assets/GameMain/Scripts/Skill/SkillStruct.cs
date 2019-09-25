@@ -8,6 +8,9 @@ namespace GameProject
     public struct SkillStruct
     {
         public string name;
+        public string outPutName { get { return "<color=#0000ffff> " + name + "</color>"; } }
+        //public string outPutName { get { return name; } }
+
         public SkillType type;
         public int hurt;
         public float releaseTime;

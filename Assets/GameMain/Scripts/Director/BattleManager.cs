@@ -34,6 +34,7 @@ namespace GameProject
             GameControler.singleton.eventManager.FireEvent<SceneEnteredArg>(this, null);
             Pause();
             player.OnChampionFallDown = OnChampionFall;
+            enemy.OnChampionFallDown = OnChampionFall;
         }
 
         private void GameEnd()
